@@ -1,0 +1,19 @@
+name: pratice
+on:
+  # push:
+  #   branches: [main, master]
+  # pull_request:
+  #   branches: [main, master]
+    
+  workflow_dispatch:
+    inputs:
+      greet: 
+        description: "need a parameter for greeting"
+        default: "hello"
+        required: true
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: greeting using parameter
+        run: echo "hello ${{ github.event.inputs.greet }}"
